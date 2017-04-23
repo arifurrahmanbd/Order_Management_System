@@ -1,0 +1,70 @@
+<div class="box box-info">
+	<div class="box-header with-border">
+		<h3 class="box-title">Horizontal Form</h3>
+	</div>
+	<!-- /.box-header -->
+	<!-- form start -->
+	<form class="form-horizontal" id="login_form"
+		onsubmit="return validateForm()" method="post"
+		action="/login/validate" role="form">
+		<div class="box-body">
+			<div class="form-group">
+				<label for="userEmail" class="col-sm-2 control-label">Email</label>
+
+				<div class="col-sm-10">
+					<input class="form-control" id="txtEmail" name="userEmail"
+						placeholder="Email" type="email"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="userPassword" class="col-sm-2 control-label">Password</label>
+
+				<div class="col-sm-10">
+					<input class="form-control" id="txtPassword" name="userPassword"
+						placeholder="Password" type="password"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="checkbox">
+						<label> <input type="checkbox"/> Remember me
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.box-body -->
+		<div class="box-footer">
+			<!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+			<button type="submit" class="btn btn-info pull-right">Login</button>
+		</div>
+		<!-- /.box-footer -->
+	</form>
+
+</div>
+<script>
+	/*<![CDATA[*/
+	function validateForm() {
+
+		if ($("#txtEmail").val() == null || $("#txtEmail").val() == "") {
+			$("#lblStatus").text("Please enter your email");
+			return false;
+		}
+
+		if ($("#txtPassword").val() == null || $("#txtPassword").val() == "") {
+			$("#lblStatus").text("Please enter your password");
+			return false;
+		}
+	}
+
+	$(document).ready(
+			function() {
+				$("#linkHome").click(
+						function() {
+							window.location.replace(window.location.protocol
+									+ "//" + window.location.host + "/");
+						});
+			});
+
+	/*]]>*/
+</script>

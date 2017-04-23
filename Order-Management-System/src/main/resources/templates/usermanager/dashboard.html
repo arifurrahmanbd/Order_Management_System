@@ -1,0 +1,9 @@
+<html layout:decorator="layout" xmlns:th="http://www.thymeleaf.org"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<div layout:fragment="main-sidebar">
+	<div th:include="usermanager/main-sidebar" th:remove="tag" />
+</div>
+<div layout:fragment="content">
+	<div th:include="usermanager/dashboard_content" th:remove="tag" />
+</div>
+</html>

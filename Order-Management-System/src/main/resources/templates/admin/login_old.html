@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<title>Login</title>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/css/w3.css" />
+
+<link href="/css/jquery-ui.min.css" rel="stylesheet" />
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+<!-- CSS for add checkbox in dropdown -->
+<link href="/css/jquery.multiselect.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- CSS for modal popup -->
+<link href="/css/modal-popup.css" rel="stylesheet" type="text/css" />
+
+<!-- CSS for spin -->
+<link href="/css/spin.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" href="/css/login.css" />
+<script src="/js/prefixfree.min.js"></script>
+
+</head>
+
+<body class="w3-content" style="max-width: 100%">
+	<nav class="navbar navbar-fixed-top"
+		style="background-color: #4286f4; border-color: #080808;">
+		<table style="width: 100%;" border="0">
+			<tr>
+				<td style="width: 15%; padding-top: 11px; padding-left: 40px;"
+					valign="top"><img src="/images/logo.png" /></td>
+
+				<td style="width: 70%;"></td>
+
+				<td style="width: 15%; padding-top: 16px;" valign="top"><a
+					id="linkHome" class="linkBotton">Home</a></td>
+			</tr>
+		</table>
+	</nav>
+	<br />
+	<br />
+	<br />
+
+	<div id="login">
+		<form id="login_form" onsubmit="return validateForm()" method="post"
+			action="/login/validate" role="form">
+			<div class="field_container">
+				<input type="text" id="txtEmail" name="userEmail"
+					placeholder="Email Address" />
+			</div>
+
+			<div class="field_container">
+				<input type="Password" id="txtPassword" name="userPassword"
+					placeholder="Password" />
+				<button id="btnLogin" type="submit">
+					<span class="button_text">Sign In</span>
+				</button>
+				<br />
+				<br /> <label id="lblStatus" style="color: red;"
+					data-th-text="${message}"></label>
+			</div>
+
+			<div id="sign_in_options" class="field_container">
+				<div id="sign_in_alternatives_container"></div>
+				<div id="remember_me_container">
+					<!--           <input name="user[remember_me]" type="hidden" value="0"/><input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1"/>
+          <label class="login_link" for="user_remember_me" id="remember_me_label">stay signed in</label>
+ -->
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</form>
+
+		<div id="dont_have_an_account"></div>
+	</div>
+
+</body>
+</html>
+
+<!-- javascript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/js/jquery-1.12.4.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.multiselect.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/setup.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.numeric.min.js"></script>
+<script src="/js/amcharts/amcharts.js"></script>
+<script src="/js/amcharts/pie.js"></script>
+<script src="/js/amcharts/serial.js"></script>
+
+<script>
+	/*<![CDATA[*/
+	function validateForm() {
+
+		if ($("#txtEmail").val() == null || $("#txtEmail").val() == "") {
+			$("#lblStatus").text("Please enter your email");
+			return false;
+		}
+
+		if ($("#txtPassword").val() == null || $("#txtPassword").val() == "") {
+			$("#lblStatus").text("Please enter your password");
+			return false;
+		}
+	}
+
+	$(document).ready(
+			function() {
+				$("#linkHome").click(
+						function() {
+							window.location.replace(window.location.protocol
+									+ "//" + window.location.host + "/");
+						});
+			});
+
+	/*]]>*/
+</script>

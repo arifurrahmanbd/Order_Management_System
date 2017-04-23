@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="manager">
+<head>
+<div th:include="theme_includes/head_contents" th:remove="tag" />
+<div th:include="theme_includes/css_files" th:remove="tag" />
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<div th:include="theme_includes/header" th:remove="tag" />
+		<!-- Left side column. contains the logo and sidebar -->
+		<div th:include="theme_includes/control_sidebar" th:remove="tag" />
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div th:include="theme_includes/content_header" th:remove="tag" />
+			<div th:include="usermanager/login_form" th:remove="tag" />
+		</div>
+		<!-- /.content-wrapper -->
+		<div th:include="theme_includes/footer" th:remove="tag" />
+
+		<div th:include="theme_includes/control_sidebar" th:remove="tag" />
+
+		<!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<!-- ./wrapper -->
+	<div th:include="theme_includes/js_files" th:remove="tag" />
+	
+</body>
+</html>

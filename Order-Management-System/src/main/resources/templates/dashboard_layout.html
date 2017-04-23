@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="manager">
+<head>
+<div th:include="theme_includes/head_contents" th:remove="tag" />
+<div th:include="theme_includes/js_files" th:remove="tag" />
+</head>
+
+<body class="hold-transition skin-blue layout-top-nav">
+	<div class="wrapper">
+		<div th:include="theme_includes/dashboard-main-header" th:remove="tag" />
+		<!-- Left side column. contains the logo and sidebar -->
+		<!-- <div th:include="theme_includes/main-sidebar" th:remove="tag" /> -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<!-- <div th:include="theme_includes/content-header" th:remove="tag" /> -->
+			<!-- <div th:include="dashboard/dashboard_content" th:remove="tag" /> -->
+			<!-- <h1>Hello World!</h1> -->
+			<div layout:fragment="content">
+				<!-- ============================================================================ -->
+				<!-- This content is only used for static prototyping purposes (natural templates)-->
+				<!-- and is therefore entirely optional.                                          -->
+				<!-- ============================================================================ -->
+				<h1>Dashboard Layout....</h1>
+			</div>
+		</div>
+		<!-- /.content-wrapper -->
+		<div th:include="theme_includes/main-footer" th:remove="tag" />
+
+		<!-- <div th:include="theme_includes/main-sidebar" th:remove="tag" /> -->
+
+		<!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<!-- ./wrapper -->
+
+</body>
+</html>

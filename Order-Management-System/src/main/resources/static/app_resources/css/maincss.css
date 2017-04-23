@@ -1,0 +1,57 @@
+
+/* ------------------------------- */
+/*      Main Navigation Style      */
+/* ------------------------------- */
+#main-navigation {
+	clear: both;
+	background: #436783 url(images/main-nav.gif) top left repeat-x;
+	color: #fff;
+	font-size: 1em;
+	font-size:20px;/* customized */
+	height: 5.2em;
+	height:95px;
+	overflow: auto;
+	border-bottom: 0.2em solid #47637c;
+	padding: 0.5em 0 0.1em 0;
+}
+
+#main-navigation ul li {
+	float: right;
+	display: inline;
+	height: 4.85em;
+	padding: 0 1em 0 0.5em;
+	border-left: 0.1em solid #5c809c;
+	border-right: 0.1em solid #3e5a71;
+}
+
+#main-navigation ul .disabled {
+	color: #D4D0C8;
+}
+
+#main-navigation ul .first {
+	border-left: none;
+}
+
+#main-navigation ul .last {
+	border-right: none;
+}
+
+#main-navigation ul a {
+	color: #fff;
+	display: block;
+	padding: 0 0.6em 0 0.6em;
+	font-size: 0.9em;
+	font-weight: normal;
+	text-transform: uppercase;
+	/* Uncomment next line for main-nav drop shadows */
+	/*text-shadow: 0px 1px 1px #22323f;*/
+}
+
+#main-navigation ul a:hover, #main-navigation ul .selected {
+	color: #F9924B;
+	text-decoration: none;
+}
+
+#main-navigation ul a:focus {
+	text-decoration: underline;
+}

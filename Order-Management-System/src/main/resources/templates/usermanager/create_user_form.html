@@ -1,0 +1,136 @@
+<div class="col-md-6">
+
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Add New User </h3>
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body">
+			<form action="createUserAction" class="form-horizontal">
+
+				<div class="box-body">
+					<input name="id" value="0" type="text" />
+					<div class="form-group">
+						<label for="userFullName" class="col-sm-2 control-label">
+							Name</label>
+
+						<div class="col-sm-10">
+							<input class="form-control" id="userFullName" name="userFullName"
+								placeholder="Full Name" type="text" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="phoneNo" class="col-sm-2 control-label"> Phone
+							No</label>
+
+						<div class="col-sm-10">
+							<input class="form-control" id="phoneNo" name="phoneNo"
+								placeholder="Phone No" type="text" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userLoginId" class="col-sm-2 control-label">
+							User Login Id</label>
+
+						<div class="col-sm-10">
+							<input class="form-control" id="userLoginId" name="userLoginId"
+								placeholder="User Login Id" type="text" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="currentPassword" class="col-sm-2 control-label">
+							Password</label>
+
+						<div class="col-sm-10">
+							<input class="form-control" id="currentPassword" name="currentPassword"
+								placeholder="Password" type="password" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="confirmPassword" class="col-sm-2 control-label">
+							Confirm Password</label>
+
+						<div class="col-sm-10">
+							<input class="form-control" id="confirmPassword"
+								name="confirmPassword" placeholder="Phone Code" type="password" />
+						</div>
+					</div>
+					<select name="securityGroup">
+						<option th:each="securityGroup : ${securityGroupList}"
+							th:value="${securityGroup.groupPermission}" th:text="${securityGroup.description}"></option>
+					</select>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label> <input type="checkbox" /> Enabled
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.box-body -->
+				<div class="box-footer">
+					<input type="submit" id="btnSave" class="btn btn-default"
+						value="Create User" /> <label id="createActionLabel"></label>
+				</div>
+				<!-- /.box-footer -->
+
+			</form>
+		</div>
+	</div>
+</div>
+<div class="col-md-6">
+
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">User List</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table class="table table-bordered" id="tblCountry" dt:table="true">
+					<thead>
+						<tr>
+							<th th-text="Name ${userLoginList}"></th>
+							<th style="text-align: center;">Update</th>
+							<th style="text-align: center;">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-th-each="userLogin : ${userLoginList}">
+						
+							<td class="message" data-th-text="${userLogin.userLoginId}"></td>
+							<td class="message" data-th-text="${userLogin.passwordHint}"></td>
+
+							<td style="text-align: center;"><input type="image"
+								src="/images/edit.png" alt="Update" th:id="${userLogin.id}"
+								onclick="getCountryInfo(event);" title="Edit" name="edit"
+								style="width: 20px; height: 20px;" /></td>
+
+							<td style="text-align: center;"><a
+								onclick="return confirm('Are you sure to delete this?');"
+								th:href="@{'/setup/country/{id}/delete'(id=${userLogin.id})}"
+								class="delete" th:attr="name=${userLogin.id}"> <img
+									src="/images/delete.png" alt="Delete" title="Delete"
+									style="width: 24px; height: 24px;" />
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+			<div class="box-footer clearfix">
+				<ul class="pagination pagination-sm no-margin pull-right">
+					<li><a href="#">«</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">»</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /.box -->
+
+
+	</div>
+<script type="text/javascript"
+	src="/hometheatre/setup/countrySetupActions.js"></script>

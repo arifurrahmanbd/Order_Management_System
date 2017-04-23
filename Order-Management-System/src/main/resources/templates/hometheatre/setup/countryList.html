@@ -1,0 +1,36 @@
+<html layout:decorator="layout" xmlns:th="http://www.thymeleaf.org"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<div layout:fragment="content">
+	<div class="span12" style="width: 600px;" id="countryListContainer">
+		<table class="table table-striped" id="tblCountry" dt:table="true">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th style="text-align: center;">Update</th>
+					<th style="text-align: center;">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="country : ${countryList}">
+					<td class="message" data-th-text="${country.countryName}"></td>
+
+					<td style="text-align: center;"><input type="image"
+						src="/images/edit.png" alt="Update" th:id="${country.id}"
+						onclick="getCountryInfo(event);" title="Edit" name="edit"
+						style="width: 20px; height: 20px;" /></td>
+
+					<td style="text-align: center;"><a
+						onclick="return confirm('Are you sure to delete this?');"
+						th:href="@{'/country/{id}/delete'(id=${country.id})}"
+						class="delete" th:attr="name=${country.countryName}"> <img
+							src="/images/delete.png" alt="Delete" title="Delete"
+							style="width: 24px; height: 24px;" />
+					</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+</html>
+

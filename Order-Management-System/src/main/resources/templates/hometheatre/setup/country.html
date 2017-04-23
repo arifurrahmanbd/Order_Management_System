@@ -1,0 +1,117 @@
+<html layout:decorator="layout" xmlns:th="http://www.thymeleaf.org"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<div layout:fragment="main-sidebar">
+	<div th:include="hometheatre/main-sidebar" th:remove="tag" />
+</div>
+
+<div layout:fragment="content">
+
+	<div class="col-md-6">
+
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">Country Add Form</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<form action="" class="form-horizontal">
+
+					<div class="box-body">
+						<div class="form-group">
+							<label for="countryName" class="col-sm-2 control-label">Country
+								Name</label>
+
+							<div class="col-sm-10">
+								<input class="form-control" id="countryName"
+									placeholder="Country" type="text" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="countryCode" class="col-sm-2 control-label">Country
+								Code</label>
+
+							<div class="col-sm-10">
+								<input class="form-control" id="countryCode"
+									placeholder="Country Code" type="text" />
+							</div>
+						</div>
+						<!-- <div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="checkbox">
+						<label> <input type="checkbox"> Remember me
+						</label>
+					</div>
+				</div>
+			</div> -->
+					</div>
+					<!-- /.box-body -->
+					<div class="box-footer">
+						<input type="button" id="btnSave" class="btn btn-default"
+							value="Add New" /> <input type="button" id="btnUpdate"
+							class="btn btn-info pull-right" value="Update" /> <input
+							type="button" id="btnCancel" class="btn btn-info pull-right"
+							value="Cancel" /> <label id="lblStatus"></label>
+					</div>
+					<!-- /.box-footer -->
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col-md-6">
+
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">Country List</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table class="table table-bordered" id="tblCountry" dt:table="true">
+					<thead>
+						<tr>
+							<th>Name ${countryList}</th>
+							<th style="text-align: center;">Update</th>
+							<th style="text-align: center;">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-th-each="country : ${countryList}">
+							<td class="message" data-th-text="${country.countryName}"></td>
+
+							<td style="text-align: center;"><input type="image"
+								src="/images/edit.png" alt="Update" th:id="${country.id}"
+								onclick="getCountryInfo(event);" title="Edit" name="edit"
+								style="width: 20px; height: 20px;" /></td>
+
+							<td style="text-align: center;"><a
+								onclick="return confirm('Are you sure to delete this?');"
+								th:href="@{'/setup/country/{id}/delete'(id=${country.id})}"
+								class="delete" th:attr="name=${country.countryName}"> <img
+									src="/images/delete.png" alt="Delete" title="Delete"
+									style="width: 24px; height: 24px;" />
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+			<div class="box-footer clearfix">
+				<ul class="pagination pagination-sm no-margin pull-right">
+					<li><a href="#">«</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">»</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /.box -->
+
+
+	</div>
+<script type="text/javascript" src="/hometheatre/setup/countrySetupActions.js"></script>
+</div>
+</html>
+
